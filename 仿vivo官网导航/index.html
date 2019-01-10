@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>不会canvas，就用动画</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <ul class="clearfix">
+        <li>
+          <a href="javascript:;"> 小米 </a>
+          <ul class="list-item">
+            <li>
+              <a href="javascript:;">小米牛逼</a>
+            </li>
+            <li>
+              <a href="javascript:;">雷军牛逼牛逼牛逼</a>
+            </li>
+          </ul>
+          <div class="bg">
+          </div>
+        </li>
+        <li>
+          <a href="javascript:;"> 华为 </a>
+          <ul class="list-item">
+            <li>
+              <a href="javascript:;">华为牛逼</a>
+            </li>
+            <li>
+              <a href="javascript:;">任正非牛逼牛逼牛逼</a>
+            </li>
+          </ul>
+          <div class="bg">
+          </div>
+        </li>
+      </ul>
+      <div class="rotate-line">
+        <span class="circle1"></span>
+        <span class="circle2"></span>
+        <span class="circle3"></span>
+        <span class="circle4"></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    var nav = document.querySelector('.nav');
+    var crotate = document.querySelector('.rotate-line');
+    var lis = nav.children[0].children;
+    for (var i = 0; i < lis.length; i++) {
+      lis[i].addEventListener('mouseenter', function () {
+
+        this.style.height = '210px';
+        this.libg = this.querySelector('.bg');
+        this.libg.appendChild(crotate.cloneNode(true));
+        this.libg.style.height = '170px';
+
+        setTimeout(function () {
+          this.libg.children[0].style = "left: 0";
+        }.bind(this), 10);
+
+      }, false);
+
+      lis[i].addEventListener('mouseleave', function () {
+
+        this.style.height = '50px';
+        this.libg.style.height = 0;
+
+        setTimeout(function () {
+          this.libg.innerHTML = "";
+        }.bind(this), 50)
+
+      }, false)
+
+    }
+  </script>
+</body>
+
+</html>

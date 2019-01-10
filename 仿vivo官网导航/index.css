@@ -1,0 +1,224 @@
+/* 
+*
+*/
+/* 清除样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* 样式 */
+.container {
+  /* height: 50px; */
+  background-color: rgba(26, 26, 26, .9);
+}
+
+.nav {
+  width: 60%;
+  min-height: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.nav>ul>li {
+  float: left;
+  transition: height .2s ease-in-out;
+  position: relative;
+  bottom: 0;
+}
+
+
+.nav>ul>li a {
+  display: block;
+  padding: 0 20px;
+  line-height: 50px;
+  color: #fff;
+  transition: all .4s ease-in-out;
+}
+
+.list-item>li a {
+  opacity: 0;
+  height: 0;
+}
+
+.nav>ul>li:hover .list-item a {
+  opacity: 1;
+  height: 50px;
+}
+
+.rotate-line {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 100px;
+  height: 210px;
+  overflow: hidden;
+  transition: all .8s ease;
+}
+
+.nav .rotate-line {
+  display: none;
+}
+
+.nav ul .rotate-line {
+  display: block;
+}
+
+.rotate-line span {
+  display: block;
+}
+
+.rotate-line .circle1,
+.rotate-line .circle2,
+.rotate-line .circle3,
+.rotate-line .circle4 {
+  border: 1px solid #008edb;
+  border-radius: 50%;
+  opacity: .5;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.rotate-line .circle1::after,
+.rotate-line .circle2::after,
+.rotate-line .circle3::after,
+.rotate-line .circle4::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background-color: #008edb;
+  transform: translate(2px, -50%);
+  border-radius: 50%;
+  opacity: .8;
+}
+
+.rotate-line .circle3::after,
+.rotate-line .circle4::after {
+  opacity: 1;
+}
+
+.rotate-line .circle4::after {
+  width: 6px;
+  height: 6px;
+  transform: translate(3px, -50%);
+}
+
+.rotate-line .circle1 {
+  width: 80px;
+  height: 80px;
+  margin-right: -50px;
+  margin-top: -50px;
+  animation: circle 4s linear infinite;
+}
+
+.rotate-line .circle2 {
+  width: 100px;
+  height: 100px;
+  margin-right: -50px;
+  margin-top: -50px;
+  animation: circle2 8s linear infinite;
+}
+
+.rotate-line .circle3 {
+  width: 120px;
+  height: 120px;
+  margin-right: -80px;
+  margin-top: -70px;
+  opacity: 1;
+  animation: circle2 6s linear infinite;
+}
+
+.rotate-line .circle4 {
+  width: 140px;
+  height: 140px;
+  margin-right: -80px;
+  margin-top: -90px;
+  border-width: 2px;
+  opacity: 1;
+  animation: circle 6s linear infinite;
+}
+
+
+@keyframes circle {
+  0% {
+    transform: translate(-8px, -8px) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(10px, 0) rotate(90deg);
+  }
+
+  50% {
+    transform: translate(10px, 10px) rotate(180deg);
+  }
+
+  75% {
+    transform: translate(-20px, 0) rotate(270deg);
+  }
+
+  100% {
+    transform: translate(-8px, -8px) rotate(360deg);
+  }
+}
+
+@keyframes circle2 {
+  0% {
+    transform: translate(8px, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(10px, 10px) rotate(-90deg);
+  }
+
+  50% {
+    transform: translate(-10px, 0) rotate(-180deg);
+  }
+
+  75% {
+    transform: translate(-10px, -10px) rotate(-270deg);
+  }
+
+  100% {
+    transform: translate(8px, 0) rotate(-360deg);
+  }
+}
+
+
+.bg {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 100px;
+  height: 0;
+  margin: 20px 0;
+  border-right: 1px solid #666;
+  transition: height .2s ease;
+  overflow: hidden;
+  z-index: 998;
+}
